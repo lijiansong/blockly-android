@@ -27,6 +27,7 @@ import com.google.blockly.android.clipboard.SingleMimeTypeClipDataHelper;
 import com.google.blockly.android.codegen.CodeGenerationRequest;
 import com.google.blockly.android.codegen.CodeGeneratorManager;
 import com.google.blockly.android.control.BlocklyController;
+import com.google.blockly.android.ui.BlockListUI;
 import com.google.blockly.android.ui.BlockViewFactory;
 import com.google.blockly.android.ui.DefaultVariableCallback;
 import com.google.blockly.android.ui.WorkspaceHelper;
@@ -41,20 +42,19 @@ import java.util.List;
 /**
  * Class to facilitate Blockly setup on an Activity.
  *
- *
  * {@link BlocklyActivityHelper#onCreateFragments()} looks for
- * the {@link WorkspaceFragment}, the toolbox's {@link FlyoutFragment}, and the trash's
- * {@link FlyoutFragment} via fragment ids {@link R.id#blockly_workspace},
+ * the {@link WorkspaceFragment}, the toolbox's {@link BlockListUI}, and the trash's
+ * {@link BlockListUI} via fragment ids {@link R.id#blockly_workspace},
  * {@link R.id#blockly_toolbox_ui}, and {@link R.id#blockly_trash_ui}, respectively.
  * <p/>
  * The activity can also contain a few buttons to control the workspace.
  * {@link R.id#blockly_zoom_in_button} and {@link R.id#blockly_zoom_out_button} control the
  * workspace zoom scale, and {@link R.id#blockly_center_view_button} will reset it.
- * {@link R.id#blockly_trash_icon} will toggle a closeable {@link FlyoutFragment}, and also act as
- * a block drop target to delete blocks.  The methods {@link #onConfigureTrashIcon()},
- * {@link #onConfigureZoomInButton()}, {@link #onConfigureZoomOutButton()}, and
- * {@link #onConfigureCenterViewButton()} will search for these views
- * and set the respective behavior.
+ * {@link R.id#blockly_trash_icon} will toggle a closeable {@link R.id#blockly_trash_ui}
+ * {@link BlockListUI} (such as {@link FlyoutFragment}), and also act as a block drop target to
+ * delete blocks.  The methods {@link #onConfigureTrashIcon()}, {@link #onConfigureZoomInButton()},
+ * {@link #onConfigureZoomOutButton()}, and {@link #onConfigureCenterViewButton()} will search for
+ * these views and set the respective behavior.
  */
 
 public class BlocklyActivityHelper {
@@ -66,8 +66,8 @@ public class BlocklyActivityHelper {
     protected BlockViewFactory mBlockViewFactory;
     protected BlockClipDataHelper mClipDataHelper;
     protected WorkspaceFragment mWorkspaceFragment;
-    protected FlyoutFragment mToolboxFlyoutFragment;
-    protected FlyoutFragment mTrashFlyoutFragment;
+    protected BlockListUI mToolboxFlyoutFragment;
+    protected BlockListUI mTrashFlyoutFragment;
     protected CategorySelectorFragment mCategoryFragment;
 
     protected BlocklyController mController;
@@ -264,11 +264,11 @@ public class BlocklyActivityHelper {
         FragmentManager fragmentManager = mActivity.getSupportFragmentManager();
         mWorkspaceFragment = (WorkspaceFragment)
                 fragmentManager.findFragmentById(R.id.blockly_workspace);
-        mToolboxFlyoutFragment = (FlyoutFragment) fragmentManager
+        mToolboxFlyoutFragment = (BlockListUI) fragmentManager
                 .findFragmentById(R.id.blockly_toolbox_ui);
         mCategoryFragment = (CategorySelectorFragment) fragmentManager
                 .findFragmentById(R.id.blockly_categories);
-        mTrashFlyoutFragment = (FlyoutFragment) fragmentManager
+        mTrashFlyoutFragment = (BlockListUI) fragmentManager
                 .findFragmentById(R.id.blockly_trash_ui);
 
         if (mTrashFlyoutFragment != null) {
