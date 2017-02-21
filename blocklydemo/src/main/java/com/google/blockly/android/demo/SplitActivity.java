@@ -54,6 +54,22 @@ public class SplitActivity extends AbstractBlocklyActivity {
                     });
                 }
             };
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //ADD override
+
+
+    @NonNull
+    @Override
+    protected List<String> getJsonFileFromOtherDir() {
+        return null;
+    }
+
+    @NonNull
+    @Override
+    protected String getXmlPathFromOtherDir() {
+        return null;
+    }
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -41,6 +41,22 @@ public class NoCategoriesToolboxActivity extends AbstractBlocklyActivity {
     protected View onCreateContentView(int containerId) {
         return getLayoutInflater().inflate(R.layout.always_open_toolbox, null);
     }
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //ADD override
+
+
+    @NonNull
+    @Override
+    protected List<String> getJsonFileFromOtherDir() {
+        return null;
+    }
+
+    @NonNull
+    @Override
+    protected String getXmlPathFromOtherDir() {
+        return null;
+    }
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     @NonNull
     @Override

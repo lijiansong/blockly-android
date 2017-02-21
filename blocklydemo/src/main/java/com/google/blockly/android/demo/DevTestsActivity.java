@@ -68,6 +68,21 @@ public class DevTestsActivity extends BlocklySectionsActivity {
             new LoggingCodeGeneratorCallback(this, TAG);
     protected LogAllEventsCallback mEventsCallback = new LogAllEventsCallback("BlocklyEvents");
 
+    //ADD override
+
+
+    @NonNull
+    @Override
+    protected List<String> getJsonFileFromOtherDir() {
+        return null;
+    }
+
+    @NonNull
+    @Override
+    protected String getXmlPathFromOtherDir() {
+        return null;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         boolean isShown = super.onCreateOptionsMenu(menu);

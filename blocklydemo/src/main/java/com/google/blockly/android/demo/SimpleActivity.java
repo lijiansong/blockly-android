@@ -52,6 +52,21 @@ public class SimpleActivity extends AbstractBlocklyActivity {
         return BLOCK_DEFINITIONS;
     }
 
+    //ADD override
+
+
+    @NonNull
+    @Override
+    protected String getXmlPathFromOtherDir() {
+        return null;
+    }
+
+    @NonNull
+    @Override
+    protected List<String> getJsonFileFromOtherDir() {
+        return null;
+    }
+
     @NonNull
     @Override
     protected String getToolboxContentsXmlPath() {

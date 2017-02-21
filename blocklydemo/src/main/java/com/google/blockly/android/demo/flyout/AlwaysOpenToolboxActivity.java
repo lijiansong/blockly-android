@@ -51,6 +51,21 @@ public class AlwaysOpenToolboxActivity extends AbstractBlocklyActivity {
     CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
             new LoggingCodeGeneratorCallback(this, TAG);
 
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //ADD override
+    @NonNull
+    @Override
+    protected List<String> getJsonFileFromOtherDir() {
+        return null;
+    }
+
+    @NonNull
+    @Override
+    protected String getXmlPathFromOtherDir() {
+        return null;
+    }
+
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++
     @NonNull
     @Override
     protected List<String> getBlockDefinitionsJsonPaths() {
